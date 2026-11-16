@@ -1,5 +1,5 @@
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -15,6 +15,7 @@ body {
 
 .tabbed {
   width: 800px;
+  max-width: 100%;
   margin: 50px auto;
 }
 
@@ -38,6 +39,7 @@ body {
 
 .start {
   width: 800px;
+  max-width: 100%;
   margin: 50px auto;
 }
 
@@ -48,6 +50,7 @@ body {
 
 .tabs > div {
   width: 800px;
+  max-width: 100%;
   position: absolute;
   border: 2px solid #4EC6DE;
   padding: 10px 30px 40px;
@@ -70,29 +73,10 @@ img.book {
 #tab-nav-4:checked ~ .tabs > div:nth-of-type(4),
 #tab-nav-5:checked ~ .tabs > div:nth-of-type(5),
 #tab-nav-6:checked ~ .tabs > div:nth-of-type(6),
-#tab-nav-7:checked ~ .tabs > div:nth-of-type(7){
-transform: rotateX(0deg);
-opacity: 1;
-z-index: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .tabbed { width: 400px }
-  .start {width: 400px}
-  .tabbed > label { display: none }
-  .tabs > div {
-    width: 400px;
-    border: none;
-    padding: 0;
-    opacity: 1;
-    position: relative;
-    transform: none;
-    margin-bottom: 60px;
-  }
-  .tabs > div h2 {
-    border-bottom: 2px solid #4EC6DE;
-    padding-bottom: .5em;
-  }
+#tab-nav-7:checked ~ .tabs > div:nth-of-type(7) {
+  transform: rotateX(0deg);
+  opacity: 1;
+  z-index: 1;
 }
 
 pre {
@@ -110,4 +94,37 @@ code {
 .tabs img {
   max-width: 100%;
   height: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .tabbed,
+  .start {
+    width: auto;
+    padding: 0 16px;
+    margin: 30px auto;
+  }
+
+  .tabbed > label {
+    display: none;
+  }
+
+  .tabs > div {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    padding: 0;
+    opacity: 1;
+    position: relative;
+    transform: none;
+    margin-bottom: 60px;
+  }
+
+  .tabs > div h2 {
+    border-bottom: 2px solid #4EC6DE;
+    padding-bottom: .5em;
+  }
+
+  img.book {
+    width: 120px;
+  }
 }
